@@ -3,7 +3,7 @@ import Todos from './components/todos';
 import Todo from './components/todo';
 import Loading from './components/loading';
 import { useDispatch, useSelector } from 'react-redux';
-import { INITIAL_STATE, LOAD_SPINNER} from './helpers/action_types';
+import { INITIAL_STATE, LOAD_SPINNER,VIEW_EDIT_TODO} from './helpers/action_types';
 
 function App() {
   const dispatch = useDispatch();
@@ -17,6 +17,9 @@ function App() {
   }
   if(!Object.keys(initialState).length) {
     loadPage();
+    if(urlState!=='todos') {
+      dispatch({type: VIEW_EDIT_TODO,payload: {id: urlState}});
+    }
   }
 
   let toLoad;
