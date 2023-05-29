@@ -4,7 +4,7 @@ const url_reducer =(state = null, action) => {
         case INITIAL_STATE: {return action.payload.todos || null;}
         case VIEW_EDIT_TODO: {return action.payload.id || null;}
         case GO_BACK: {return action.payload.todos || null;}
-        case UPDATE_TODO_AND_GO_BACK: {return action.todos || null;}
+        case UPDATE_TODO_AND_GO_BACK: {return action.payload.todos || null;}
         case VIEW_SINGLE_TODO: {return action.payload.id || null;}
         default: return state;
     }
